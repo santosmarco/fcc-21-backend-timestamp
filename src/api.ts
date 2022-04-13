@@ -1,10 +1,10 @@
 import type { RequestHandler } from "express";
 import type { ApiResponse, ApiResponseFail, ApiResponseSuccess } from "./types";
 
-export const handleTimestamp: RequestHandler<{ input: string }, ApiResponse> = (
-  req,
-  res
-) => {
+export const handleTimestamp: RequestHandler<
+  { input?: string },
+  ApiResponse
+> = (req, res) => {
   const {
     params: { input },
   } = req;
@@ -23,7 +23,7 @@ export const handleTimestamp: RequestHandler<{ input: string }, ApiResponse> = (
 
 type NormalizedInput = string | number | undefined;
 
-const normalizeInput = (input: string): NormalizedInput => {
+const normalizeInput = (input: string | undefined): NormalizedInput => {
   if (!input) {
     return undefined;
   }
