@@ -23,7 +23,7 @@ app.get("/", function (_, res) {
 });
 
 // your first API endpoint...
-app.get("/api/:input", handleTimestamp);
+app.get("/api/:input?", handleTimestamp);
 
 // listen for requests :)
 app.listen(PORT, function () {
